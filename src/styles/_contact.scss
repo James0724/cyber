@@ -1,0 +1,180 @@
+/* CONTACT FORM */
+.lable_name {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  padding-top: 1rem;
+}
+.placeholder-text {
+  background: none;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #8b9cf9;
+  letter-spacing: 0.2rem;
+  color: #fff;
+}
+
+.form-control {
+  height: 60px;
+  color: #fff !important;
+  background-color: transparent;
+  border: none;
+  border-radius: 0px;
+  font-size: 15px;
+  border-bottom: 1px solid #8b9cf9;
+  padding: 20px 0px;
+  padding-left: 0;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+
+  &:focus {
+    background: none;
+    box-shadow: none;
+  }
+}
+.form-control::placeholder {
+  color: #8b9cf9;
+}
+textarea {
+  width: 100%;
+  background: none;
+  padding: 0.5rem;
+  border: 0.5px solid #fff;
+
+  &::placeholder {
+    color: #8b9cf9;
+  }
+  &:focus {
+    box-shadow: none;
+    border: 0.5px solid #fff;
+    outline-color: transparent;
+  }
+}
+.boldlist {
+  @include padding-bottom(1rem);
+  @include padding-top(1rem);
+  position: relative;
+  list-style: none;
+  box-sizing: border-box;
+  &::after {
+    content: "";
+    position: absolute;
+    right: -50%;
+    top: 10%;
+    background: url(../assets/filloutformarea.png) top right;
+    background-size: contain;
+    height: 200px;
+    width: 200px;
+    opacity: 0.8;
+  }
+  li:not(:last-child) {
+    box-sizing: border-box;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: -2rem;
+      height: 100%;
+      width: 1px;
+      background: #f8ff35;
+    }
+  }
+  li {
+    position: relative;
+    left: 1rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  li::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -2.7rem;
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 4px #f8ff3629, 0px 0px 0px 8px #f8ff350f;
+    background: #f8ff35;
+  }
+}
+
+@media (max-width: 1250px) and (min-width: 768px) {
+  .boldlist {
+    &::after {
+      content: "";
+      display: none;
+    }
+    li:not(:last-child) {
+      box-sizing: border-box;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        left: -2.15rem;
+        height: 100%;
+        width: 1px;
+        background: #f8ff35;
+      }
+    }
+    li::after {
+      content: "";
+      left: -2.7rem;
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  .form-control {
+    font-size: 14px;
+  }
+  .lable_name {
+    font-size: 14px;
+  }
+  .placeholder-text {
+    font-size: 14px;
+  }
+
+  textarea {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .boldlist {
+    &::after {
+      content: "";
+      display: none;
+    }
+    li:not(:last-child) {
+      box-sizing: border-box;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        left: -2.3rem;
+        height: 100%;
+        width: 1px;
+        background: #f8ff35;
+      }
+    }
+    li::after {
+      content: "";
+      left: -2.7rem;
+      height: 15px;
+      width: 15px;
+    }
+  }
+
+  .form-control {
+    font-size: 12px;
+  }
+  .lable_name {
+    font-size: 12px;
+  }
+  .placeholder-text {
+    font-size: 12px;
+  }
+
+  textarea {
+    font-size: 12px;
+  }
+}

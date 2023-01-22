@@ -1,0 +1,165 @@
+.menu {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+.navbar-main {
+  display: flex;
+  position: relative;
+  padding: 1rem;
+  justify-content: space-between;
+}
+.nav {
+  position: absolute;
+  right: 5rem;
+  top: 1rem;
+}
+.menu-items {
+  padding: 1rem;
+  right: 0;
+  top: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  @include font-size(14px);
+  li {
+    padding-left: 20px;
+    padding-right: 20px;
+    :first-child {
+      padding-left: 0;
+    }
+  }
+  a {
+    color: $sub-main;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+  }
+}
+.mobile-menu {
+  display: none;
+}
+
+.menu-icon {
+  z-index: 100;
+  visibility: hidden;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+
+  .menu-icon__cheeckbox {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+  }
+  div {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 22px;
+    height: 12px;
+  }
+  span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $sub-main;
+    border-radius: 1px;
+    transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+
+    &:first-of-type {
+      top: 0;
+    }
+    &:last-of-type {
+      bottom: 0;
+    }
+  }
+  &.active,
+  .menu-icon__cheeckbox:checked + div {
+    span {
+      &:first-of-type {
+        transform: rotate(45deg);
+        top: 5px;
+      }
+      &:last-of-type {
+        transform: rotate(-45deg);
+        bottom: 5px;
+      }
+    }
+  }
+
+  &.active:hover span:first-of-type,
+  &.active:hover span:last-of-type,
+  &:hover .menu-icon__cheeckbox:checked + div span:first-of-type,
+  &:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
+    width: 22px;
+  }
+
+  &:hover {
+    // no need hover effect on mobile.
+    @media (min-width: 1024px) {
+      span:first-of-type {
+        width: 26px;
+      }
+
+      span:last-of-type {
+        width: 12px;
+      }
+    }
+  }
+}
+
+//RESPONSIVE FEATURE
+@media (max-width: 834px) {
+  .nav {
+    visibility: hidden;
+    position: relative;
+    right: 0;
+    top: 0;
+  }
+  .nav.open {
+    visibility: visible;
+  }
+  .menu-icon {
+    visibility: visible;
+  }
+  .navbar-main {
+    display: flex;
+    justify-content: space-between;
+    background-color: $dark_blue;
+  }
+  .menu-items {
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: $dark_blue;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+
+    li {
+      width: max-content;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      :first-child {
+        padding-top: 0;
+      }
+    }
+    &.open {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  .mobile-menu {
+    display: block;
+  }
+}

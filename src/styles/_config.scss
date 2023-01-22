@@ -1,0 +1,35 @@
+$main: #1d23bf;
+$dark_blue: #070c94;
+$white: #fff;
+$sub-main: #f8ff35;
+$fade: #8b9cf9;
+
+$mainfont: "Clash Grotesk", sans-serif;
+$subfont: "General Sans", sans-serif;
+
+@font-face {
+  font-family: "BebasKai";
+  src: url("../fonts/BebasKai.ttf") format("truetype");
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(5) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+// font-family: 'Clash Grotesk', sans-serif;
+// font-family: 'General Sans', sans-serif;
